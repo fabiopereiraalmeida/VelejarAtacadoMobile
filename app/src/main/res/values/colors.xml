@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#828282</color>
+    <color name="colorPrimaryDark">#4F4F4F</color>
+    <color name="colorAccent">#2196F3</color> <!--#FF5722 -->
+
+    <color name="branco">#FFFFFF</color>
+    <color name="azul">#2196F3</color>
+    <color name="azulClaro">#00BCD4</color>
+    <color name="verde">#388E3C</color>
+    <color name="cinzaEscuro">#212121</color>
+    <color name="cinzaClaro">#9E9E9E</color>
+
+    <color name="fab_normal">#2196F3</color>
+    <color name="fab_precionado">#00BCD4</color>
+
+<!--
+    <color name="branco">#FFFFFF</color>
+    <color name="azul">#2196F3</color>
+    <color name="azulClaro">#00BCD4</color>
+    <color name="verde">#388E3C</color>
+    <color name="cinzaEscuro">#212121</color>
+    <color name="cinzaClaro">#9E9E9E</color>
+
+    <color name="fab_normal">#2196F3</color>
+    <color name="fab_precionado">#00BCD4</color>
+-->
+</resources>

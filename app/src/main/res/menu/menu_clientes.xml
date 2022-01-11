@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.grupocaravela.velejar.atacadomobile.ClientesActivity">
+
+    <item
+        android:id="@+id/action_cadastrar_cliente"
+        android:title="Cadastrar Cliente"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+</menu>

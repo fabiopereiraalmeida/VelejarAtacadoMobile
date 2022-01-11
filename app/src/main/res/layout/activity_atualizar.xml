@@ -1,0 +1,95 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="br.com.grupocaravela.velejar.atacadomobile.AtualizarActivity">
+
+    <!-- Inicioa toobar colocado -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Vendas"
+        android:id="@+id/button2"
+        android:layout_marginTop="37dp"
+        android:drawableLeft="@drawable/enviar_info_x64"
+        android:background="@drawable/efeito_click_botao"
+        android:onClick="clickEnviarVendas"
+        android:layout_below="@+id/bt_atualizar_informacoes"
+        android:layout_alignLeft="@+id/bt_atualizar_informacoes"
+        android:layout_alignStart="@+id/bt_atualizar_informacoes"
+        android:layout_alignRight="@+id/bt_atualizar_informacoes"
+        android:layout_alignEnd="@+id/bt_atualizar_informacoes" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_main_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="4dp"
+        app:theme="@style/Theme.CompreFacil"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atualizar Informações"
+        android:id="@+id/bt_atualizar_informacoes"
+        android:layout_marginTop="40dp"
+        android:drawableLeft="@drawable/receber_info_x64"
+        android:background="@drawable/efeito_click_botao"
+        android:onClick="clickAtualizarInformacoes"
+        android:layout_below="@+id/toolbar_main_top"
+        android:layout_centerHorizontal="true" />
+<!--
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Atualizar Imagens"
+        android:id="@+id/button"
+        android:drawableLeft="@drawable/atualizar_imagens_64"
+        android:background="@drawable/efeito_click_botao"
+        android:layout_marginTop="16dp"
+        android:onClick="clickAtualizarImagens"
+        android:layout_below="@+id/bt_atualizar_informacoes"
+        android:layout_alignLeft="@+id/bt_enviar_vendas"
+        android:layout_alignStart="@+id/bt_enviar_vendas"
+        android:layout_alignRight="@+id/bt_atualizar_informacoes"
+        android:layout_alignEnd="@+id/bt_atualizar_informacoes" />
+-->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar Caixas"
+        android:id="@+id/bt_enviar_vendas"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/enviar_info_x64"
+        android:background="@drawable/efeito_click_botao"
+        android:onClick="clickEnviarCaixaRecebidas"
+        android:layout_below="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enviar novos clientes"
+        android:id="@+id/bt_enviar_clientes"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/enviar_info_x64"
+        android:background="@drawable/efeito_click_botao"
+        android:onClick="clickEnviarNovosClientes"
+        android:layout_below="@+id/bt_enviar_vendas"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignRight="@+id/button2"
+        android:layout_alignEnd="@+id/button2" />
+
+    <!-- Fim toobar colocado -->
+
+</RelativeLayout>

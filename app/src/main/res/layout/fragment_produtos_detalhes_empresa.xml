@@ -1,0 +1,146 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.grupocaravela.velejar.atacadomobile.fragments.ProdutosDestaqueFragment">
+
+    <FrameLayout
+        android:layout_below="@+id/toolbar_main_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/sv_produto_detalhes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" >
+
+        <RelativeLayout
+            android:id="@+id/rl_fragment_container_detalhes_empresa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/branco"
+            android:layout_below="@+id/toolbar_main_top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Nome Empresa"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:id="@+id/tv_nome_empresa_produto_detalhes"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <ImageView
+                android:id="@+id/iv_logo_empresa_produto_detalhes"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_below="@+id/tv_nome_empresa_produto_detalhes"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="End.: Rua Teste de Alcantara"
+                android:id="@+id/tv_endereco_produto_detalhes"
+                android:layout_below="@+id/iv_logo_empresa_produto_detalhes"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Nº 000"
+                android:id="@+id/tv_endereco_numero_produto_detalhes"
+                android:layout_below="@+id/tv_endereco_produto_detalhes"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Bairro: Centro"
+                android:id="@+id/tv_bairro_produto_detalhes"
+                android:layout_alignTop="@+id/tv_endereco_numero_produto_detalhes"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Cidade:"
+                android:id="@+id/tv_cidade_produto_detalhes"
+                android:layout_below="@+id/tv_endereco_numero_produto_detalhes"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="CEP: 00.000-000"
+                android:id="@+id/tv_cep_produto_detalhes"
+                android:layout_below="@+id/tv_bairro_produto_detalhes"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tel.: 77 8888-2222"
+                android:id="@+id/tv_telefone1_produto_detalhes"
+                android:layout_below="@+id/tv_cidade_produto_detalhes"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_toLeftOf="@+id/tv_telefone2_produto_detalhes"
+                android:layout_toStartOf="@+id/tv_telefone2_produto_detalhes" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Tel.: 77 3455-2222"
+                android:id="@+id/tv_telefone2_produto_detalhes"
+                android:layout_alignTop="@+id/tv_telefone1_produto_detalhes"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <Button
+                android:id="@+id/bt_ligar_Produto_detalhes"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@drawable/ligar_azul_24x24"
+                android:text="Ligar"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/tv_telefone1_produto_detalhes"/>
+
+        </RelativeLayout>
+
+        </ScrollView>
+
+    </FrameLayout>
+
+</RelativeLayout>

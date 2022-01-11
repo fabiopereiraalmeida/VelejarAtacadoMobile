@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Velejar_ATACADO_MOBILE</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="atualizar_informacoes">AtualizarInformações</string>
+    <string name="action_configuracoes">Configurações</string>
+    <string name="action_sair">Sair</string>
+    <string name="action_zerar_banco">Limpar banco de dados</string>
+    <string name="action_facebook">Facebook</string>
+    <string name="action_portal_web">Portal Web</string>
+    <string name="title_activity_configuracao">ConfiguracaoActivity</string>
+    <string name="title_activity_ajuda">AjudaActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_gerar_catalogo_todos_produtos">Gerar catalogo de todos produtos</string>
+    <string name="action_gerar_catalogo_pesquisa">Gerar Catalogo da pesquisa</string>
+    <string name="title_activity_empresas">EmpresasActivity</string>
+    <string name="title_activity_produtos">Produtos</string>
+    <string name="title_activity_detalhes_produto">DetalhesProdutoActivity</string>
+    <string name="title_activity_detalhes_empresa">DetalhesEmpresaActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_cadastro_usuario">CadastroUsuarioActivity</string>
+    <string name="title_activity_cadastro_cliente">CadastroClienteActivity</string>
+    <string name="title_activity_entrada">EntradaActivity</string>
+    <string name="title_activity_inserir_comentario">InserirComentarioActivity</string>
+    <string name="title_activity_erro_servidor">ErroServidorActivity</string>
+    <string name="title_activity_carrinhos_compras_cabecalho">CarrinhosComprasCabecalhoActivity
+    </string>
+    <string name="title_activity_atualizar">Atualizar</string>
+    <string name="title_activity_clientes">Clientes</string>
+    <string name="title_activity_menu_principal">Menu Principal</string>
+    <string name="title_activity_venda">VendaActivity</string>
+    <string name="title_activity_detalhe_cliente">DetalheClienteActivity</string>
+    <string name="title_activity_finalizar_venda">FinalizarVendaActivity</string>
+    <string name="title_activity_contas_receber">ContasReceberActivity</string>
+    <string name="title_activity_detalhes_conta_receber">DetalhesContaReceberActivity</string>
+    <string name="title_activity_add_forma_pagamento">AddFormaPagamentoActivity</string>
+    <string name="title_activity_historico_vendas">HistoricoVendasActivity</string>
+
+    <string name="string_permission_help">Help</string>
+    <string name="string_permission_help_text">The permission is missing.\n\nTo grant this permission click on Settings, then Permissions and turn the permission on.\n\nThen click back twice to return to the app</string>
+    <string name="string_permission_quit">Exit App</string>
+    <string name="string_settings">Settings</string>
+</resources>

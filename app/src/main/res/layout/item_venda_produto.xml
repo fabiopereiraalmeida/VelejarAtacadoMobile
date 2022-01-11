@@ -1,0 +1,191 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp">
+
+    <ImageView
+        android:id="@+id/iv_venda_imagem_produto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="6dp"
+        android:src="@null"/>
+
+    <TextView
+        android:id="@+id/tv_venda_descricao_produto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descricao Produto"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="14sp"
+        android:textColor="@color/cinzaEscuro"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto"
+        android:layout_alignRight="@+id/tv_venda_estoque"
+        android:layout_alignEnd="@+id/tv_venda_estoque" />
+
+    <TextView
+        android:id="@+id/tv_venda_valor_unitario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="R$ 9,99"
+        android:textColor="@color/azul"
+        android:layout_alignLeft="@+id/tv_venda_descricao_produto"
+        android:layout_alignStart="@+id/tv_venda_descricao_produto"
+        android:layout_alignTop="@+id/tv_iisd"
+        android:layout_alignBottom="@+id/tv_iisd" />
+
+    <TextView
+        android:id="@+id/tv_venda_estoque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UN"
+        android:textColor="@color/verde"
+        android:textSize="10dp"
+        android:layout_below="@+id/tv_venda_total_geral"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/tv_venda_total_geral"
+        android:layout_alignStart="@+id/tv_venda_total_geral" />
+
+    <View
+        android:id="@+id/vw_divisor_item"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/tv_venda_codigo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tv_iisd"
+        android:layout_width="20dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="X"
+        android:textColor="@color/cinzaEscuro"
+        android:layout_below="@+id/tv_venda_descricao_produto"
+        android:layout_toRightOf="@+id/tv_venda_valor_unitario" />
+
+    <TextView
+        android:id="@+id/tv_venda_valor_parcial"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="R$ 9,99"
+        android:textColor="@color/azul"
+        android:layout_alignRight="@+id/vw_divisor_item"
+        android:layout_alignEnd="@+id/vw_divisor_item"
+        android:layout_alignTop="@+id/tv_iisd"
+        android:layout_alignBottom="@+id/tv_venda_qtd" />
+
+    <TextView
+        android:id="@+id/tv_venda_qtd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="02"
+        android:textColor="@color/verde"
+        android:layout_above="@+id/tv_venda_desconto"
+        android:layout_toRightOf="@+id/tv_iisd"
+        android:layout_toLeftOf="@+id/textView37"
+        android:layout_toStartOf="@+id/textView37" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Unidade"
+        android:textColor="@color/cinzaEscuro"
+        android:textSize="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@+id/tv_venda_total_geral"
+        android:layout_toLeftOf="@+id/tv_venda_estoque"
+        android:layout_toStartOf="@+id/tv_venda_estoque" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="00000000000"
+        android:id="@+id/tv_venda_codigo"
+        android:textSize="10dp"
+        android:layout_alignTop="@+id/textView12"
+        android:layout_toLeftOf="@+id/textView12"
+        android:layout_alignLeft="@+id/textView29"
+        android:layout_alignStart="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/tv_venda_desconto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="R$ 9,99"
+        android:textColor="@color/azul"
+        android:layout_toRightOf="@+id/tv_venda_valor_unitario"
+        android:layout_toEndOf="@+id/tv_venda_valor_unitario"
+        android:layout_alignTop="@+id/textView29"
+        android:layout_alignBottom="@+id/textView29" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="38dp"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="Desc."
+        android:textColor="@color/cinzaEscuro"
+        android:layout_below="@+id/tv_venda_valor_unitario"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto"
+        android:layout_toStartOf="@+id/tv_venda_desconto"
+        android:layout_toLeftOf="@+id/tv_venda_desconto" />
+
+    <TextView
+        android:id="@+id/tv_venda_total_geral"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="R$ 9,99"
+        android:textColor="@color/azul"
+        android:layout_alignTop="@+id/tv_venda_desconto"
+        android:layout_alignLeft="@+id/tv_venda_valor_parcial"
+        android:layout_alignStart="@+id/tv_venda_valor_parcial" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="V. Parcial"
+        android:textColor="@color/cinzaEscuro"
+        android:layout_above="@+id/tv_venda_total_geral"
+        android:layout_below="@+id/tv_venda_descricao_produto"
+        android:layout_toLeftOf="@+id/tv_venda_valor_parcial"
+        android:layout_toStartOf="@+id/tv_venda_valor_parcial" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="10dp"
+        android:text="V. Total"
+        android:textColor="@color/cinzaEscuro"
+        android:layout_above="@+id/textView12"
+        android:layout_below="@+id/textView37"
+        android:layout_alignRight="@+id/textView37"
+        android:layout_alignEnd="@+id/textView37" />
+
+</RelativeLayout>

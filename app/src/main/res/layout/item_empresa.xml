@@ -1,0 +1,62 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp">
+
+    <ImageView
+        android:id="@+id/iv_empresa_item"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="6dp"
+        android:src="@null"/>
+
+    <TextView
+        android:id="@+id/tv_nome_empresa_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome Empresa"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/cinzaEscuro"
+        android:layout_toRightOf="@+id/iv_empresa_item"/>
+
+    <TextView
+        android:id="@+id/tv_categoria_empresa_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="16dp"
+        android:textSize="14sp"
+        android:text="Categoria"
+        android:textColor="@color/azul"
+        android:layout_below="@+id/tv_nome_empresa_item"
+        android:layout_alignLeft="@+id/tv_nome_empresa_item"
+        android:layout_alignStart="@+id/tv_nome_empresa_item" />
+
+    <TextView
+        android:id="@+id/tv_telefone_empresa_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(77) 3455-0000"
+        android:textColor="@color/verde"
+        android:textSize="14sp"
+        android:layout_alignTop="@+id/tv_categoria_empresa_item"
+        android:layout_alignRight="@+id/vw_divisor"
+        android:layout_alignEnd="@+id/vw_divisor" />
+
+    <View
+        android:id="@+id/vw_divisor"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/iv_empresa_item"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp" />
+
+
+
+</RelativeLayout>

@@ -1,0 +1,47 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp">
+
+    <ImageView
+        android:id="@+id/iv_usuario"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="6dp"
+        android:src="@null"/>
+
+    <TextView
+        android:id="@+id/tv_nome_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_toRightOf="@+id/iv_usuario"/>
+
+    <TextView
+        android:id="@+id/tv_telefone_usuario"
+        android:layout_below="@+id/tv_nome_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_toRightOf="@+id/iv_usuario"/>
+
+    <View
+        android:id="@+id/vw_divisor"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/tv_nome_usuario"
+        android:layout_below="@+id/tv_telefone_usuario"
+        android:background="@color/colorPrimary"
+        />
+
+</RelativeLayout>

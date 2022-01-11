@@ -1,0 +1,9 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.grupocaravela.velejar.atacadomobile.ProdutosActivity">
+    <item android:id="@+id/action_gerar_catalogo_todos_produtos" android:title="@string/action_gerar_catalogo_todos_produtos"
+        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_gerar_catalogo_pesquisa" android:title="@string/action_gerar_catalogo_pesquisa"
+        android:orderInCategory="100" app:showAsAction="never" />
+</menu>

@@ -1,0 +1,128 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp">
+
+    <ImageView
+        android:id="@+id/iv_venda_imagem_produto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="6dp"
+        android:layout_marginTop="13dp"
+        android:src="@null" />
+
+    <TextView
+        android:id="@+id/tv_caixa_nome_cliente"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto"
+        android:paddingRight="16dp"
+        android:text="Descricao Produto"
+        android:textColor="@color/cinzaEscuro"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_venda_preco_unitario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto"
+        android:paddingRight="16dp"
+        android:text="R$ 9,99"
+        android:textColor="@color/azul"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_venda_expositor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_venda_preco_unitario"
+        android:layout_marginRight="0dp"
+        android:layout_toLeftOf="@+id/tv_venda_estoque"
+        android:paddingRight="30dp"
+        android:text="Expositor XX"
+        android:textColor="@color/cinzaEscuro"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_venda_estoque"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_venda_preco_unitario"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:text="Estoque XX"
+        android:textColor="@color/cinzaEscuro"
+        android:textSize="14sp" />
+
+    <View
+        android:id="@+id/vw_divisor_item"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_below="@+id/tv_venda_expositor"
+        android:layout_alignLeft="@+id/tv_caixa_nome_cliente"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/tv_venda_preco_minimo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:paddingRight="16dp"
+        android:text="R$ 9,99"
+        android:textColor="@color/azul"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView39"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:layout_toStartOf="@+id/tv_venda_preco_minimo"
+        android:layout_toLeftOf="@+id/tv_venda_preco_minimo"
+        android:text="V. Minimo: "
+        android:textColor="@color/verde"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_item_marca"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_toRightOf="@+id/tv_item_codigo"
+        android:text="Marca" />
+
+    <TextView
+        android:id="@+id/tv_item_codigo"
+        android:layout_width="110dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto"
+        android:text="0000000000000" />
+
+    <TextView
+        android:id="@+id/tv_item_unidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/tv_caixa_nome_cliente"
+        android:text="UN"
+        android:textColor="@color/cinzaEscuro"
+        android:textSize="18sp" />
+
+
+</RelativeLayout>

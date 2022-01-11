@@ -1,0 +1,68 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp">
+
+    <TextView
+        android:id="@+id/tv_venda_descricao_produto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forma de pagamento"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/cinzaEscuro" />
+
+    <TextView
+        android:id="@+id/tv_venda_valor_unitario"
+        android:layout_below="@+id/tv_venda_descricao_produto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="14sp"
+        android:text="Nº Parcelas:"
+        android:textColor="@color/azul" />
+
+    <TextView
+        android:text="Juros:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView35"
+        android:layout_below="@+id/tv_venda_valor_unitario"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_forma_pagamento_juros"
+        android:layout_below="@+id/tv_venda_valor_unitario"
+        android:layout_toRightOf="@+id/textView35"
+        android:layout_toEndOf="@+id/textView35"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_numero_parcelas"
+        android:layout_below="@+id/tv_venda_descricao_produto"
+        android:layout_toEndOf="@+id/tv_venda_valor_unitario"
+        android:layout_toRightOf="@+id/tv_venda_valor_unitario" />
+
+    <View
+        android:id="@+id/vw_divisor_item"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/textView35"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="br.com.grupocaravela.velejar.atacadomobile.ProdutosActivity">
+    <item
+        android:id="@+id/action_novo_cliente"
+        android:icon="@drawable/clientes_24"
+        android:orderInCategory="100"
+        android:title="Add Cliente"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_add_produto"
+        android:icon="@drawable/produtos_24"
+        android:orderInCategory="100"
+        android:title="Add Produto"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_forma_pagamento"
+        android:title="Forma pagamento"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_finalizar"
+        android:title="Finalizar"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_observacao"
+        android:title="Observação"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

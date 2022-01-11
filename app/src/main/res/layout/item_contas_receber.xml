@@ -1,0 +1,105 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp">
+
+    <ImageView
+        android:id="@+id/iv_venda_imagem_produto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="6dp"
+        android:src="@null"/>
+
+    <TextView
+        android:id="@+id/tv_caixa_nome_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Razão Social Cliente"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/cinzaEscuro"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <View
+        android:id="@+id/vw_divisor_item"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="14dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/textView33"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Valor: "
+        android:id="@+id/textView31"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto"
+        android:layout_toEndOf="@+id/iv_venda_imagem_produto" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="R$ 00.00"
+        android:textStyle="bold"
+        android:textColor="@color/azul"
+        android:id="@+id/tv_contas_receber_valor"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:layout_toRightOf="@+id/textView31"
+        android:layout_toEndOf="@+id/textView31" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Vencimento: "
+        android:id="@+id/textView33"
+        android:layout_below="@+id/textView31"
+        android:layout_alignLeft="@+id/textView31"
+        android:layout_alignStart="@+id/textView31" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="dd/mm/yyyy"
+        android:textColor="@color/verde"
+        android:textStyle="bold"
+        android:id="@+id/tv_contas_vencimento"
+        android:layout_alignBottom="@+id/textView33"
+        android:layout_toRightOf="@+id/textView33"
+        android:layout_toEndOf="@+id/textView33" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_contas_receber_valor"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:textSize="18sp"
+        android:paddingLeft="16dp"
+        android:text="Desconto: " />
+
+    <TextView
+        android:id="@+id/tv_contas_receber_valor_desconto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingLeft="5dp"
+        android:layout_toRightOf="@+id/textView34"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:text="R$ 0,00
+" />
+
+
+</RelativeLayout>

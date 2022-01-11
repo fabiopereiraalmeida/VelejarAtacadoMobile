@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.grupocaravela.velejar.atacadomobile.fragments.ProdutosDestaqueFragment">
+
+    <FrameLayout
+        android:layout_below="@+id/toolbar_main_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_fragment_container_detalhes_produtos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background6"
+            android:layout_below="@+id/toolbar_main_top">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edt_localizar_produto_detalhes"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_toRightOf="@+id/iv_localizar_produto_detalhes"
+                android:layout_toEndOf="@+id/iv_localizar_produto_detalhes" />
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/iv_localizar_produto_detalhes"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignBottom="@+id/edt_localizar_produto_detalhes" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_produto_list_detalhes"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/edt_localizar_produto_detalhes" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+
+</RelativeLayout>

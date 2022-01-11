@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="br.com.grupocaravela.velejar.atacadomobile.AjudaActivity">
+
+    <!-- Inicioa toobar colocado -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_main_top"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:elevation="4dp"
+        app:theme="@style/Theme.CompreFacil"/>
+    <!-- Fim toobar colocado -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Olá, Bem vindo ao Caculé CompreFacil!!!"
+        android:textColor="#ff0059ff"
+        android:layout_below="@+id/toolbar_main_top"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/cinzaEscuro"
+            android:text="O Caculé CompreFacil é um aplicativo desenvolvido pelo Grupo Caravela no intuito de facilitar a consulta e até mesmo a compra de produtos na cidade de Caculé  e região. \n \n As empresas interessadas em anunciar e vender gratuitamente no Caculé Comprefacil, entrar em contato com o numero (77) 8100-0781.\n\n Estamos aguardando sua participação!"
+            android:id="@+id/textView2" />
+    </ScrollView>
+
+
+</RelativeLayout>

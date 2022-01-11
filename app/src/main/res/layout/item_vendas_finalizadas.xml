@@ -1,0 +1,99 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp"
+    android:paddingLeft="16dp">
+
+    <ImageView
+        android:id="@+id/iv_venda_imagem_produto"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="6dp"
+        android:src="@null"/>
+
+    <TextView
+        android:id="@+id/tv_caixa_nome_cliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome do cliente"
+        android:layout_marginBottom="5dp"
+        android:paddingRight="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/cinzaEscuro"
+        android:layout_toRightOf="@+id/iv_venda_imagem_produto" />
+
+    <View
+        android:id="@+id/vw_divisor_item"
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tv_vendas_valor_venda"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Data venda: "
+        android:id="@+id/textView28"
+        android:layout_below="@+id/tv_caixa_nome_cliente"
+        android:layout_alignLeft="@+id/tv_caixa_nome_cliente"
+        android:layout_alignStart="@+id/tv_caixa_nome_cliente" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="dd/mm/yyyy hh:mm:ss"
+        android:textColor="@color/verde"
+        android:textStyle="bold"
+        android:id="@+id/tv_vendas_data_venda"
+        android:layout_alignBottom="@+id/textView28"
+        android:layout_toRightOf="@+id/textView28"
+        android:layout_toEndOf="@+id/textView28"
+        android:layout_below="@+id/tv_caixa_nome_cliente" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Valor: "
+        android:id="@+id/textView30"
+        android:layout_below="@+id/textView28"
+        android:layout_alignLeft="@+id/textView28"
+        android:layout_alignStart="@+id/textView28" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="R$ 00.00"
+        android:textColor="@color/azul"
+        android:textStyle="bold"
+        android:id="@+id/tv_vendas_valor_venda"
+        android:layout_alignBottom="@+id/textView30"
+        android:layout_toRightOf="@+id/textView30"
+        android:layout_toEndOf="@+id/textView30" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Concluido"
+        android:textStyle="italic"
+        android:textColor="@color/primary_dark_material_dark"
+        android:id="@+id/tv_vendas_estado_venda"
+        android:layout_alignTop="@+id/tv_vendas_valor_venda"
+        android:layout_alignRight="@+id/vw_divisor_item"
+        android:layout_alignEnd="@+id/vw_divisor_item"
+        android:layout_toRightOf="@+id/tv_vendas_valor_venda"
+        android:layout_toEndOf="@+id/tv_vendas_valor_venda"
+        android:gravity="right" />
+
+
+</RelativeLayout>
