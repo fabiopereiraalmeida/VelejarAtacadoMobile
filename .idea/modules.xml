@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/VelejarAtacado.iml" filepath="$PROJECT_DIR$/VelejarAtacado.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/VelejarAtacado.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/VelejarAtacado.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VelejarAtacadoMobile.iml" filepath="$PROJECT_DIR$/.idea/modules/VelejarAtacadoMobile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/VelejarAtacadoMobile.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/VelejarAtacadoMobile.app.iml" />
     </modules>
   </component>
 </project>

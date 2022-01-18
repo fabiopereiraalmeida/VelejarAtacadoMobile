@@ -39,7 +39,7 @@ import br.com.grupocaravela.velejar.atacadomobile.fragments.VendasFinalizadasHis
 import br.com.grupocaravela.velejar.atacadomobile.objeto.AndroidVendaCabecalho;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.AndroidVendaDetalhe;
 
-public class HistoricoVendasActivity extends ActionBarActivity {
+public class HistoricoVendasActivity extends ActionBarActivity implements DatePickerDialog.OnDateSetListener, DialogInterface.OnCancelListener{
 
     private DBHelper dbHelper;
     private SQLiteDatabase db;
@@ -49,7 +49,9 @@ public class HistoricoVendasActivity extends ActionBarActivity {
 
     private VendasFinalizadasHistoricoFragment frag;
 
+
     private int posicao = 0;
+    private Integer tipoData = null;
     private boolean finalLista = false;
     private Toolbar mainToolbarTop;
 
@@ -62,9 +64,11 @@ public class HistoricoVendasActivity extends ActionBarActivity {
     private int idVendaCabecalho;
     private Long ultimoIdVendaCabecalho;
 
-    private int ano, mes, dia;
-    private Calendar cDataInicio = Calendar.getInstance();
-    private Calendar cDataFim = Calendar.getInstance();
+    private int anoInicio, mesInicio, diaInicio, anoFim, mesFim, diaFim;
+    private Calendar cDataInicio = null;
+    private Calendar cDataFim = null;
+
+    private boolean porData = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +77,14 @@ public class HistoricoVendasActivity extends ActionBarActivity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+        if (cDataInicio == null){
+            cDataInicio = Calendar.getInstance();
+        }
+
+        if (cDataFim == null){
+            cDataFim = Calendar.getInstance();
+        }
 
         posicao = 0;
         finalLista = false;
@@ -150,7 +162,7 @@ public class HistoricoVendasActivity extends ActionBarActivity {
                 .rawQuery(
                         "SELECT _id, codVenda, observacao, cliente_id, entrada, juros, valor_parcial, valor_desconto, valor_total, " +
                                 "dataVenda, dataPrimeiroVencimento, usuario_id, forma_pagamento_id, empresa_id, venda_aprovada, enviado  " +
-                                "FROM android_venda_cabecalho WHERE enviado LIKE '1'", null);
+                                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN", null);
 
         cursor.moveToFirst();
 
@@ -286,9 +298,10 @@ public class HistoricoVendasActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        initDateTimeData();
-        this.cDataInicio.set(ano, mes, dia);
-        this.cDataFim.set(ano, mes, dia);
+        initDateTimeDataInicio();
+        initDateTimeDataFim();
+        this.cDataInicio.set(anoInicio, mesInicio, diaInicio);
+        this.cDataFim.set(anoFim, mesFim, diaFim);
 
         switch (item.getItemId()) {
 
@@ -364,10 +377,10 @@ public class HistoricoVendasActivity extends ActionBarActivity {
 
             case R.id.action_data_inicial_historico:
                 //##############################################
-                DatePickerDialog datePickerInicioDialog = new DatePickerDialog().newInstance(
-                        cDataInicio.get(Calendar.YEAR),
-                        cDataInicio.get(Calendar.MONTH),
-                        cDataInicio.get(Calendar.DAY_OF_MONTH)
+                DatePickerDialog datePickerInicioDialog = new DatePickerDialog().newInstance(this,
+                        cDataInicio.get(cDataInicio.YEAR),
+                        cDataInicio.get(cDataInicio.MONTH),
+                        cDataInicio.get(cDataInicio.DAY_OF_MONTH)
                 );
 
                 List<Calendar> dayListInicio = new LinkedList<>();
@@ -376,6 +389,8 @@ public class HistoricoVendasActivity extends ActionBarActivity {
 
                 datePickerInicioDialog.setOnCancelListener(datePickerInicioDialog);
                 datePickerInicioDialog.show(getFragmentManager(), "Informe a data");
+
+                tipoData = 0;
                 break;
 
 
@@ -383,9 +398,9 @@ public class HistoricoVendasActivity extends ActionBarActivity {
                 //##############################################
                 DatePickerDialog datePickerFimDialog = new DatePickerDialog().newInstance(
                         this,
-                        cDataFim.get(Calendar.YEAR),
-                        cDataFim.get(Calendar.MONTH),
-                        cDataFim.get(Calendar.DAY_OF_MONTH)
+                        cDataFim.get(cDataFim.YEAR),
+                        cDataFim.get(cDataFim.MONTH),
+                        cDataFim.get(cDataFim.DAY_OF_MONTH)
                 );
 
                 List<Calendar> dayListFim = new LinkedList<>();
@@ -395,6 +410,7 @@ public class HistoricoVendasActivity extends ActionBarActivity {
                 datePickerFimDialog.setOnCancelListener(this);
                 datePickerFimDialog.show(getFragmentManager(), "Informe a data");
 
+                tipoData = 1;
                 break;
         }
 
@@ -406,12 +422,21 @@ public class HistoricoVendasActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void initDateTimeData(){
-        if (ano == 0){
-            Calendar c = Calendar.getInstance();
-            ano = c.get(Calendar.YEAR);
-            mes = c.get(Calendar.MONTH);
-            dia = c.get(Calendar.DAY_OF_MONTH);
+    private void initDateTimeDataInicio(){
+        if (anoInicio == 0){
+            //Calendar c = Calendar.getInstance();
+            anoInicio = cDataInicio.get(Calendar.YEAR);
+            mesInicio = cDataInicio.get(Calendar.MONTH);
+            diaInicio = cDataInicio.get(Calendar.DAY_OF_MONTH);
+        }
+    }
+
+    private void initDateTimeDataFim(){
+        if (anoFim == 0){
+            //Calendar c = Calendar.getInstance();
+            anoFim = cDataFim.get(Calendar.YEAR);
+            mesFim = cDataFim.get(Calendar.MONTH);
+            diaFim = cDataFim.get(Calendar.DAY_OF_MONTH);
         }
     }
 
@@ -517,7 +542,6 @@ public class HistoricoVendasActivity extends ActionBarActivity {
             }
         }
 
-
         //###########################################################################################
     }
 
@@ -563,6 +587,39 @@ public class HistoricoVendasActivity extends ActionBarActivity {
         Date hoje = new Date();
         // java.util.Date hoje = Calendar.getInstance().getTime();
         return hoje;
+    }
+
+    @Override
+    public void onCancel(DialogInterface dialog) {
+        //ano = mes = dia = 0;
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
+        //Calendar tDefault = Calendar.getInstance();
+        //tDefault.set(ano, mes, dia);
+        porData = true;
+
+        if (tipoData.equals(0)) {
+            anoInicio = year;
+            mesInicio = monthOfYear;
+            diaInicio = dayOfMonth;
+
+            cDataInicio.set(anoInicio, mesInicio, diaInicio);
+        }
+
+        if (tipoData.equals(1)) {
+            anoFim = year;
+            mesFim = monthOfYear;
+            diaFim = dayOfMonth;
+
+            cDataFim.set(anoFim, mesFim, diaFim);
+        }
+
+        //Log.i("VENCIMENTO", "DATA SELECIONDA " + modificarString(2, String.valueOf(dia)) + "/" + modificarString(2, String.valueOf(mes)) + "/" + ano);
+
+        //listarContaReceber();
+        frag.atualizarLista();
     }
 
     public class ReenviarTodoHistorico extends AsyncTask<String, Void, Boolean> {

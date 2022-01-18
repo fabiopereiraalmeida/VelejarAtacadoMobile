@@ -42,6 +42,7 @@ import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -1124,4 +1125,6 @@ public class VendasFinalizadasHistoricoFragment extends Fragment implements Recy
 
         return retorno;
     }
+
+
 }
