@@ -57,6 +57,7 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
 
     private ImageLoader mImageLoader;
 
+    private SimpleDateFormat dateFormatSql = new SimpleDateFormat("yyyy-MM-dd");
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private SimpleDateFormat formatDataHoraBRA = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     private SimpleDateFormat formatSoap = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -65,8 +66,8 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
     private Long ultimoIdVendaCabecalho;
 
     private int anoInicio, mesInicio, diaInicio, anoFim, mesFim, diaFim;
-    private Calendar cDataInicio = null;
-    private Calendar cDataFim = null;
+    private Calendar cDataInicio = Calendar.getInstance();
+    private Calendar cDataFim = Calendar.getInstance();
 
     private boolean porData = false;
 
@@ -78,13 +79,24 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
+        initDateTimeDataInicio();
+        initDateTimeDataFim();
+
+        /*
         if (cDataInicio == null){
             cDataInicio = Calendar.getInstance();
+            cDataInicio.set(Calendar.HOUR_OF_DAY, 0);
+            cDataInicio.set(Calendar.MINUTE, 0);
+            cDataInicio.set(Calendar.SECOND, 0);
         }
 
         if (cDataFim == null){
             cDataFim = Calendar.getInstance();
+            cDataFim.set(Calendar.HOUR_OF_DAY, 23);
+            cDataFim.set(Calendar.MINUTE, 59);
+            cDataFim.set(Calendar.SECOND, 59);
         }
+         */
 
         posicao = 0;
         finalLista = false;
@@ -158,11 +170,21 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
         List<AndroidVendaCabecalho> listAux = new ArrayList<>();
         ArrayList<AndroidVendaCabecalho> listAndroidVendaCabecalho = new ArrayList<>();
 
+        Log.i("QUERY", "SELECT _id, codVenda, observacao, cliente_id, entrada, juros, valor_parcial, valor_desconto, valor_total, " +
+                "dataVenda, dataPrimeiroVencimento, usuario_id, forma_pagamento_id, empresa_id, venda_aprovada, enviado  " +
+                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN '" + modificarString(2, String.valueOf(diaInicio)) + "/" + modificarString(2, String.valueOf(mesInicio + 1)) + "/" + anoInicio + " 00:00:00' AND '" + modificarString(2, String.valueOf(diaFim)) + "/" + modificarString(2, String.valueOf(mesFim + 1)) + "/" + anoFim +" 23:59:59'");
+
         cursor = db
                 .rawQuery(
+                        /*
                         "SELECT _id, codVenda, observacao, cliente_id, entrada, juros, valor_parcial, valor_desconto, valor_total, " +
                                 "dataVenda, dataPrimeiroVencimento, usuario_id, forma_pagamento_id, empresa_id, venda_aprovada, enviado  " +
-                                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN", null);
+                                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN '01/01/2022' AND '30/01/2022'", null);
+                        */
+
+                        "SELECT _id, codVenda, observacao, cliente_id, entrada, juros, valor_parcial, valor_desconto, valor_total, " +
+                                "dataVenda, dataPrimeiroVencimento, usuario_id, forma_pagamento_id, empresa_id, venda_aprovada, enviado  " +
+                                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN '" + modificarString(2, String.valueOf(diaInicio)) + "/" + modificarString(2, String.valueOf(mesInicio + 1)) + "/" + anoInicio + " 00:00:00' AND '" + modificarString(2, String.valueOf(diaFim)) + "/" + modificarString(2, String.valueOf(mesFim + 1)) + "/" + anoFim +" 23:59:59'", null);
 
         cursor.moveToFirst();
 
@@ -231,11 +253,22 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
     public List<AndroidVendaCabecalho> getSetAndroidVendaDetalheListCompleta() {
         ArrayList<AndroidVendaCabecalho> listAndroidVendaDetalhes = new ArrayList<>();
 
+        Log.i("QUERY", "SELECT _id, codVenda, observacao, cliente_id, entrada, juros, valor_parcial, valor_desconto, valor_total, " +
+                "dataVenda, dataPrimeiroVencimento, usuario_id, forma_pagamento_id, empresa_id, venda_aprovada, enviado  " +
+                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN '" + modificarString(2, String.valueOf(diaInicio)) + "/" + modificarString(2, String.valueOf(mesInicio + 1)) + "/" + anoInicio + " 00:00:00' AND '" + modificarString(2, String.valueOf(diaFim)) + "/" + modificarString(2, String.valueOf(mesFim + 1)) + "/" + anoFim + " 23:59:59'");
+
+
         cursor = db
                 .rawQuery(
+/*
                         "SELECT _id, codVenda, observacao, cliente_id, entrada, juros, valor_parcial, valor_desconto, valor_total, " +
                                 "dataVenda, dataPrimeiroVencimento, usuario_id, forma_pagamento_id, empresa_id, venda_aprovada, enviado  " +
-                                "FROM android_venda_cabecalho WHERE enviado LIKE '1'", null);
+                                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN '01/01/2022' AND '30/01/2022'", null);
+*/
+
+                        "SELECT _id, codVenda, observacao, cliente_id, entrada, juros, valor_parcial, valor_desconto, valor_total, " +
+                                "dataVenda, dataPrimeiroVencimento, usuario_id, forma_pagamento_id, empresa_id, venda_aprovada, enviado  " +
+                                "FROM android_venda_cabecalho WHERE enviado LIKE '1' AND dataVenda BETWEEN '" + modificarString(2, String.valueOf(diaInicio)) + "/" + modificarString(2, String.valueOf(mesInicio + 1)) + "/" + anoInicio + " 00:00:00' AND '" + modificarString(2, String.valueOf(diaFim)) + "/" + modificarString(2, String.valueOf(mesFim + 1)) + "/" + anoFim +" 23:59:59'", null);
 
         cursor.moveToFirst();
 
@@ -298,10 +331,11 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        initDateTimeDataInicio();
-        initDateTimeDataFim();
-        this.cDataInicio.set(anoInicio, mesInicio, diaInicio);
-        this.cDataFim.set(anoFim, mesFim, diaFim);
+        //initDateTimeDataInicio();
+        //initDateTimeDataFim();
+
+        //this.cDataInicio.set(anoInicio, mesInicio, diaInicio);
+        //this.cDataFim.set(anoFim, mesFim, diaFim);
 
         switch (item.getItemId()) {
 
@@ -423,21 +457,51 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
     }
 
     private void initDateTimeDataInicio(){
-        if (anoInicio == 0){
+
+        if (cDataInicio != null){
+            anoInicio = cDataInicio.get(Calendar.YEAR);
+            mesInicio = cDataInicio.get(Calendar.MONTH);
+            diaInicio = cDataInicio.get(Calendar.DAY_OF_MONTH);
+        }else{
+            Calendar c = Calendar.getInstance();
+            anoInicio = c.get(Calendar.YEAR);
+            mesInicio = c.get(Calendar.MONTH);
+            diaInicio = c.get(Calendar.DAY_OF_MONTH);
+
+            cDataInicio.set(anoInicio, mesInicio, diaInicio);
+        }
+        /*
+       // if (anoInicio == 0){
             //Calendar c = Calendar.getInstance();
             anoInicio = cDataInicio.get(Calendar.YEAR);
             mesInicio = cDataInicio.get(Calendar.MONTH);
             diaInicio = cDataInicio.get(Calendar.DAY_OF_MONTH);
-        }
+       // }
+         */
     }
 
     private void initDateTimeDataFim(){
-        if (anoFim == 0){
+
+        if (cDataFim != null){
+            anoFim = cDataFim.get(Calendar.YEAR);
+            mesFim = cDataFim.get(Calendar.MONTH);
+            diaFim = cDataFim.get(Calendar.DAY_OF_MONTH);
+        }else{
+            Calendar c = Calendar.getInstance();
+            anoFim = c.get(Calendar.YEAR);
+            mesFim = c.get(Calendar.MONTH);
+            diaFim = c.get(Calendar.DAY_OF_MONTH);
+
+            cDataFim.set(anoFim, mesFim, diaFim);
+        }
+        /*
+       // if (anoFim == 0){
             //Calendar c = Calendar.getInstance();
             anoFim = cDataFim.get(Calendar.YEAR);
             mesFim = cDataFim.get(Calendar.MONTH);
             diaFim = cDataFim.get(Calendar.DAY_OF_MONTH);
-        }
+        //}
+         */
     }
 
     private void limparHistorico(){
@@ -606,6 +670,8 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
             diaInicio = dayOfMonth;
 
             cDataInicio.set(anoInicio, mesInicio, diaInicio);
+
+            Log.i("PESQUISANDO", "DATA INICIO");
         }
 
         if (tipoData.equals(1)) {
@@ -614,12 +680,21 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
             diaFim = dayOfMonth;
 
             cDataFim.set(anoFim, mesFim, diaFim);
+
+            Log.i("PESQUISANDO", "DATA FIM");
         }
 
-        //Log.i("VENCIMENTO", "DATA SELECIONDA " + modificarString(2, String.valueOf(dia)) + "/" + modificarString(2, String.valueOf(mes)) + "/" + ano);
+        Log.i("PESQUISANDO", "VOU PESQUISAR AGORA");
 
-        //listarContaReceber();
+        listarAndroidVendaCabecalho();
         frag.atualizarLista();
+    }
+
+    private static String modificarString(int casas, String texto){
+        while (texto.length() < casas){
+            texto = "0" + texto;
+        }
+        return texto;
     }
 
     public class ReenviarTodoHistorico extends AsyncTask<String, Void, Boolean> {

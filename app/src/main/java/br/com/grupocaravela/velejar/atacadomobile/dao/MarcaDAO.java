@@ -1,5 +1,7 @@
 package br.com.grupocaravela.velejar.atacadomobile.dao;
 
+import android.util.Log;
+
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
