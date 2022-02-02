@@ -45,7 +45,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	private static final String TABLE_PRODUTO = "CREATE TABLE IF NOT EXISTS [produto](_id INTEGER PRIMARY KEY, codigo VARCHAR(20)," +
 			"nome VARCHAR(45), estoque DOUBLE(11,3), expositor DOUBLE(11,3),valor_desejavel_venda DOUBLE(11,2), " +
-			"valor_minimo_venda DOUBLE(11,2), categoria_id INTEGER, unidade_id INTEGER, ativo BOOLEAN, peso DOUBLE(11,3), empresa_id INTEGER, " +
+			"valor_minimo_venda DOUBLE(11,2), categoria_id INTEGER, unidade_id INTEGER, marca_id INTEGER,ativo BOOLEAN, peso DOUBLE(11,3), empresa_id INTEGER, " +
 			"imagem BLOB, codigo_ref VARCHAR(14))";
 
 	private static final String TABLE_ROTA = "CREATE TABLE IF NOT EXISTS [rota](_id INTEGER PRIMARY KEY, nome VARCHAR(60), observacao TEXT, empresa_id INTEGER)";

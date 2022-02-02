@@ -1729,6 +1729,7 @@ public class AtualizarActivity extends ActionBarActivity {
             contentValues.put("valor_minimo_venda", listaProdutos.get(i).getValorMinimoVenda()); // Adicionando
             contentValues.put("categoria_id", listaProdutos.get(i).getCategoria()); // Adicionando
             contentValues.put("unidade_id", listaProdutos.get(i).getUnidade()); // Adicionando
+            contentValues.put("marca_id", listaProdutos.get(i).getMarca()); // Adicionando
             contentValues.put("ativo", listaProdutos.get(i).getAtivo()); // Adicionando
             contentValues.put("peso", listaProdutos.get(i).getPeso()); // Adicionando
             contentValues.put("empresa_id", listaProdutos.get(i).getEmpresa()); // Adicionando
@@ -1740,7 +1741,6 @@ public class AtualizarActivity extends ActionBarActivity {
             Log.i("Banco", "O Produto " + listaProdutos.get(i).getNome() + " com o expositor de " + listaProdutos.get(i).getExpositor() + " e código " + listaProdutos.get(i).getCodigo() + " foi criado com sucesso!");
 
             dialog.setProgress(i);
-
         }
     }
 
@@ -1775,7 +1775,6 @@ public class AtualizarActivity extends ActionBarActivity {
             Log.i("Banco", "O usuario " + usuario.getNome() + " com Empresa_id " + usuario.getEmpresa() + " e senha " + usuario.getSenha() + " foi criado com sucesso!");
 
             dialog.setProgress(i);
-
         }
     }
 

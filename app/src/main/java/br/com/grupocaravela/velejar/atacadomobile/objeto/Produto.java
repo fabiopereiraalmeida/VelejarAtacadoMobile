@@ -15,6 +15,7 @@ public class Produto {
     private Double peso;
     private Long unidade;
     private Long categoria;
+    private Long marca;
     private Boolean ativo;
     private Long empresa;
 
@@ -28,7 +29,7 @@ public class Produto {
 
     public Produto(Long id, String codigo, String nome, Double valorMinimoVenda,
                    Double valorDesejavelVenda, Double estoque, Double expositor, Double peso, Long unidade,
-                   Long categoria, Boolean ativo, Long empresa, byte[] imagem, String codigo_ref) {
+                   Long categoria, Long marca, Boolean ativo, Long empresa, byte[] imagem, String codigo_ref) {
         super();
         this.id = id;
         this.codigo = codigo;
@@ -40,6 +41,7 @@ public class Produto {
         this.peso = peso;
         this.unidade = unidade;
         this.categoria = categoria;
+        this.marca = marca;
         this.ativo = ativo;
         this.empresa = empresa;
         this.imagem = imagem;
@@ -100,6 +102,14 @@ public class Produto {
 
     public void setCategoria(Long categoria) {
         this.categoria = categoria;
+    }
+
+    public Long getMarca() {
+        return marca;
+    }
+
+    public void setMarca(Long marca) {
+        this.marca = marca;
     }
 
     public Boolean getAtivo() {

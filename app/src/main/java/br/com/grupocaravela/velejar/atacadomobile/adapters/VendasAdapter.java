@@ -85,62 +85,6 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int position) { //É chamado toda hora para setar os valores da lista "mList"
 
-        //holder.ivProduto.setImageResource(R.drawable.sem_foto);
-/*
-        new Thread(new Runnable() {
-            public void run() {
-                try {
-
-                    Drawable drawable = LoadImageFromWebOperations("http://177.38.244.53:8686/caculecomprefacil/imagens/produtos/" + mList.get(position).getDescricaoProduto().replaceAll(" ", "_") + "-id_" + mList.get(position).getEmpresa_idEmpresa() + "_1.png");
-
-                    if (drawable == null) {
-                        holder.ivProduto.setImageResource(R.drawable.sem_foto);
-                    } else {
-                        holder.ivProduto.setImageDrawable(drawable);
-                    }
-
-                } catch (Exception e) {
-                    //holder.ivProduto.setImageResource(R.drawable.sem_foto);
-                }
-
-            }
-        }).start();
-*/
-        /*
-        mImageLoader.displayImage(("http://177.38.244.53:8686/caculecomprefacil/imagens/produtos/" + mList.get(position).getDescricaoProduto().replaceAll(" ", "_") + "-id_" + mList.get(position).getEmpresa_idEmpresa() + "_1.png"),
-                holder.ivProduto,
-                null,
-                new ImageLoadingListener() {
-                    @Override
-                    public void onLoadingStarted(String imageUri, View view) {
-
-                        Log.i("LOG", "onLoadingStarted");
-                    }
-
-                    @Override
-                    public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-                        Log.i("LOG", "onLoadingFailed");
-                    }
-
-                    @Override
-                    public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-
-                        Log.i("LOG", "onLoadingComplete");
-                    }
-
-                    @Override
-                    public void onLoadingCancelled(String imageUri, View view) {
-
-                        Log.i("LOG", "onLoadingCancelled");
-                    }
-                }, new ImageLoadingProgressListener() {
-                    @Override
-                    public void onProgressUpdate(String imageUri, View view, int current, int total) {
-                        Log.i("LOG", "onProgressUpdate()");
-                    }
-                });
-*/
         //holder.tvPrecoUnitario.setText("R$ " + String.format("%.2f", (mList.get(position).getValorParcial() / mList.get(position).getQuantidade())).toString()); //String.format("%.2f", d)
         holder.tvPrecoUnitario.setText("R$ " + String.format("%.2f", mList.get(position).getValorUnitario()).toString());
         holder.tvQuantidade.setText(mList.get(position).getQuantidade().toString());
@@ -186,7 +130,7 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
 
                 holder.tvUnidade.setText(cursorUnidade.getString(1));
             } catch (Exception e) {
-                holder.tvUnidade.setText("xx");
+                holder.tvUnidade.setText("");
             }
 
             if (cursor.getBlob(5) != null){
@@ -202,26 +146,6 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
                 holder.ivProduto.setImageResource(R.drawable.sem_foto);
             }
 
-
-
-/*
-            Bitmap imagem = Imagem.carregarImagem(context, "produto_" + cursor.getLong(0) + ".png");
-
-            if (imagem != null){
-                holder.ivProduto.setImageBitmap(imagem);
-            }else{
-                holder.ivProduto.setImageResource(R.drawable.sem_foto);
-            }
-            */
-/*
-            Bitmap imagem = Imagem.carregarImagem(context, "produto_" + cursor.getString(1) + ".png");
-
-            if (imagem != null) {
-                holder.ivProduto.setImageBitmap(imagem);
-            } else {
-                holder.ivProduto.setImageResource(R.drawable.sem_foto);
-            }
-*/
 /*
             try {
                 holder.tvObs.setText(mList.get(position).getObs());
@@ -230,9 +154,6 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
             }
             */
         }
-
-
-
 
 /*
         cursor = db
@@ -299,7 +220,7 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
             tvValorTotal = (TextView) itemView.findViewById(R.id.tv_venda_valor_parcial);
             tvDesconto = (TextView) itemView.findViewById(R.id.tv_venda_desconto);
             tvTotalGeral = (TextView) itemView.findViewById(R.id.tv_venda_total_geral);
-            tvUnidade = (TextView) itemView.findViewById(R.id.tv_venda_estoque);
+            tvUnidade = (TextView) itemView.findViewById(R.id.textViewUn);
             tvCodigo = (TextView) itemView.findViewById(R.id.tv_venda_codigo);
             //tvObs = (TextView) itemView.findViewById(R.id.tv_obs_produto);
 
@@ -327,120 +248,4 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
         return retorno;
     }
     */
-/*
-    private class MascaraMonetaria implements TextWatcher {
-
-
-
-        final EditText campo;
-
-
-
-        public MascaraMonetaria(EditText campo) {
-
-            super();
-
-            this.campo = campo;
-
-        }
-
-
-
-        private boolean isUpdating = false;
-
-        // Pega a formatacao do sistema, se for brasil R$ se EUA US$
-
-        private NumberFormat nf = NumberFormat.getCurrencyInstance();
-
-
-
-        @Override
-
-        public void onTextChanged(CharSequence s, int start, int before,
-
-                                  int after) {
-
-            // Evita que o método seja executado varias vezes.
-
-            // Se tirar ele entre em loop
-
-            if (isUpdating) {
-
-                isUpdating = false;
-
-                return;
-
-            }
-
-
-
-            isUpdating = true;
-
-            String str = s.toString();
-
-            // Verifica se já existe a máscara no texto.
-
-            boolean hasMask = ((str.indexOf("R$") > -1 || str.indexOf("$") > -1) &&
-
-                    (str.indexOf(".") > -1 || str.indexOf(",") > -1));
-
-            // Verificamos se existe máscara
-
-            if (hasMask) {
-
-                // Retiramos a máscara.
-
-                str = str.replaceAll("[R$]", "").replaceAll("[,]", "")
-
-                        .replaceAll("[.]", "");
-
-            }
-
-
-
-            try {
-
-                // Transformamos o número que está escrito no EditText em
-
-                // monetário.
-
-                str = nf.format(Double.parseDouble(str) / 100);
-
-                campo.setText(str);
-
-                campo.setSelection(campo.getText().length());
-
-            } catch (NumberFormatException e) {
-
-                s = "";
-
-            }
-
-        }
-
-
-
-        @Override
-
-        public void beforeTextChanged(CharSequence s, int start, int count,
-
-                                      int after) {
-
-            // Não utilizado
-
-        }
-
-
-
-        @Override
-
-        public void afterTextChanged(Editable s) {
-
-            // Não utilizado
-
-        }
-
-    }
-    */
-
 }

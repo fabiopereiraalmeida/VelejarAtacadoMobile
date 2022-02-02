@@ -16,7 +16,7 @@
 
     <TextView
         android:id="@+id/tv_caixa_nome_cliente"
-        android:layout_width="280dp"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
@@ -102,7 +102,6 @@
         android:layout_marginLeft="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginBottom="15dp"
         android:layout_toRightOf="@+id/tv_item_codigo"
         android:text="Marca" />
 
@@ -117,9 +116,11 @@
         android:id="@+id/tv_item_unidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_above="@+id/tv_venda_preco_minimo"
+        android:layout_below="@+id/tv_item_marca"
+        android:layout_marginBottom="5dp"
         android:layout_toRightOf="@+id/tv_caixa_nome_cliente"
+        android:paddingLeft="16dp"
         android:text="UN"
         android:textColor="@color/cinzaEscuro"
         android:textSize="18sp" />

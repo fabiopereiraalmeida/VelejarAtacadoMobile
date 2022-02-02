@@ -1,6 +1,8 @@
 package br.com.grupocaravela.velejar.atacadomobile.adapters;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -23,6 +25,7 @@ import java.util.List;
 
 import br.com.grupocaravela.comprefacil.velejaratacado.R;
 import br.com.grupocaravela.velejar.atacadomobile.Util.Configuracao;
+import br.com.grupocaravela.velejar.atacadomobile.bancoDados.DBHelper;
 import br.com.grupocaravela.velejar.atacadomobile.interfaces.RecyclerViewOnClickListenerHack;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.Produto;
 
@@ -38,10 +41,17 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.MyView
     private ImageLoader mImageLoader;
     private Context context;
 
+    private DBHelper dbHelper;
+    private SQLiteDatabase db;
+
     public ProdutosAdapter(Context c, List<Produto> l, ImageLoader mImageLoader) {
 
         this.mList = l;
         this.mLayoutInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        //Configuração inicial
+        dbHelper = new DBHelper(c, "velejar.db", 1); // Banco
+        db = dbHelper.getWritableDatabase(); // Banco
 
         this.mImageLoader = mImageLoader;
         this.context = c;
@@ -95,12 +105,41 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.MyView
         }
 
         holder.tvCodigoProduto.setText(mList.get(position).getCodigo());
-        //holder.tvMarcaProduto.setText(mList.get(position).getMarca());
+        if (mList.get(position).getMarca() != null) {
+            Cursor cursorMarca;
+            try {
+                cursorMarca = db
+                        .rawQuery(
+                                "SELECT _id, nome FROM marca where _id like '" + mList.get(position).getMarca().toString() + "'", null);
+
+                cursorMarca.moveToFirst();
+
+                holder.tvMarcaProduto.setText(cursorMarca.getString(1));
+            } catch (Exception e) {
+                holder.tvMarcaProduto.setText("");
+            }
+            //holder.tvMarcaProduto.setText(mList.get(position).getMarca());
+        }else{
+            holder.tvMarcaProduto.setText("");
+        }
+
         holder.tvDescricaoProduto.setText(mList.get(position).getNome());
         if (mList.get(position).getUnidade() != null) {
-            holder.tvUnidadeProduto.setText(mList.get(position).getUnidade().toString());
+            Cursor cursorUnidade;
+            try {
+                cursorUnidade = db
+                        .rawQuery(
+                                "SELECT _id, nome FROM unidade where _id like '" + mList.get(position).getUnidade().toString() + "'", null);
+
+                cursorUnidade.moveToFirst();
+
+                holder.tvUnidadeProduto.setText(cursorUnidade.getString(1));
+            } catch (Exception e) {
+                holder.tvUnidadeProduto.setText("");
+            }
+            //holder.tvUnidadeProduto.setText(mList.get(position).getUnidade().toString());
         }else{
-            holder.tvUnidadeProduto.setText("");
+            holder.tvUnidadeProduto.setText("xx");
         }
         holder.tvPrecoProduto.setText("R$ " + String.format("%.2f", mList.get(position).getValorDesejavelVenda()));
         holder.tvEstoqueProduto.setText("EST.: " + mList.get(position).getEstoque().toString());
