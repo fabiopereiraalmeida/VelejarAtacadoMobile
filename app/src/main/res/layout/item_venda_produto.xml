@@ -15,7 +15,7 @@
 
     <TextView
         android:id="@+id/tv_venda_descricao_produto"
-        android:layout_width="250dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:layout_toRightOf="@+id/iv_venda_imagem_produto"
@@ -37,17 +37,17 @@
         android:textSize="10dp" />
 
     <TextView
-        android:id="@+id/tv_venda_estoque"
+        android:id="@+id/tv_venda_estoque_unidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UN"
-        android:textColor="@color/verde"
-        android:textSize="10dp"
         android:layout_below="@+id/tv_venda_total_geral"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignStart="@+id/tv_venda_total_geral"
         android:layout_alignLeft="@+id/tv_venda_total_geral"
-        android:layout_alignStart="@+id/tv_venda_total_geral" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:text="xx"
+        android:textColor="@color/verde"
+        android:textSize="10dp" />
 
     <View
         android:id="@+id/vw_divisor_item"
@@ -106,8 +106,8 @@
         android:layout_marginRight="10dp"
         android:layout_marginEnd="10dp"
         android:layout_below="@+id/tv_venda_total_geral"
-        android:layout_toLeftOf="@+id/tv_venda_estoque"
-        android:layout_toStartOf="@+id/tv_venda_estoque" />
+        android:layout_toLeftOf="@+id/tv_venda_estoque_unidade"
+        android:layout_toStartOf="@+id/tv_venda_estoque_unidade" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -186,12 +186,12 @@
         android:layout_alignEnd="@+id/textView37" />
 
     <TextView
-        android:id="@+id/textViewUn"
+        android:id="@+id/textViewVendaMarca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/tv_venda_descricao_produto"
         android:paddingLeft="16dp"
-        android:text="Un"
+        android:text="xx"
         android:textColor="@color/cinzaEscuro"
         android:textSize="14sp" />
 

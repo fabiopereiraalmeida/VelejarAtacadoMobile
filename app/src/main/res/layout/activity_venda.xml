@@ -60,18 +60,19 @@
             android:textSize="15dp" />
 
         <TextView
+            android:id="@+id/tv_venda_valor_parcial"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="R$ 0.00"
-            android:id="@+id/tv_venda_valor_parcial"
-            android:textStyle="bold"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:layout_below="@+id/textView26"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="10dp"
+            android:text="R$ 0.00"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="#4c77e3"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
         <View
             android:id="@+id/vw_divisor_item"
@@ -84,18 +85,16 @@
             android:background="@color/verde" />
 
         <TextView
+            android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Total: "
-            android:id="@+id/textView27"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@+id/tv_venda_valor_parcial"
-            android:layout_toStartOf="@+id/tv_venda_valor_parcial"
             android:layout_below="@+id/tv_forma_pagamento"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/tv_venda_valor_parcial"
+            android:layout_toLeftOf="@+id/tv_venda_valor_parcial"
+            android:text="Total: "
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="15dp" />
-
-
 
         <TextView
             android:layout_width="wrap_content"

@@ -105,6 +105,7 @@ public class ProdutosAdapter extends RecyclerView.Adapter<ProdutosAdapter.MyView
         }
 
         holder.tvCodigoProduto.setText(mList.get(position).getCodigo());
+
         if (mList.get(position).getMarca() != null) {
             Cursor cursorMarca;
             try {

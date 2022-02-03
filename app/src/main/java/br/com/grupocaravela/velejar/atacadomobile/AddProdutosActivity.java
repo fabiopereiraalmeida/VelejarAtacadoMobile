@@ -128,13 +128,13 @@ public class AddProdutosActivity extends ActionBarActivity {
                 cursor = db
                         .rawQuery(
                                 "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
-                                        "ativo, peso, empresa_id, imagem, codigo_ref FROM produto WHERE nome LIKE '%" + nome + "%' " +
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE nome LIKE '%" + nome + "%' " +
                                         "OR codigo LIKE '%" + nome + "%' OR codigo_ref LIKE '%" + nome + "%' ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
             }else{
                 cursor = db
                         .rawQuery(
                                 "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
-                                        "ativo, peso, empresa_id, imagem, codigo_ref FROM produto WHERE nome LIKE '%" + nome + "%' AND estoque > '0'" +
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE nome LIKE '%" + nome + "%' AND estoque > '0'" +
                                         "OR codigo LIKE '%" + nome + "%' AND estoque > '0' OR codigo_ref LIKE '%" + nome + "%' AND estoque > '0' ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
             }
 
@@ -172,6 +172,7 @@ public class AddProdutosActivity extends ActionBarActivity {
                     p.setEmpresa(cursor.getLong(11));
                     p.setImagem(cursor.getBlob(12));
                     p.setCodigo_ref(cursor.getString(13));
+                    p.setMarca(cursor.getLong(14));
                     //listProdutos.add(p);
                     listAux.add(p);
 
@@ -210,12 +211,12 @@ public class AddProdutosActivity extends ActionBarActivity {
                 cursor = db
                         .rawQuery(
                                 "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
-                                        "ativo, peso, empresa_id, imagem, codigo_ref FROM produto ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
             }else {
                 cursor = db
                         .rawQuery(
                                 "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
-                                        "ativo, peso, empresa_id, imagem, codigo_ref FROM produto WHERE estoque > '0' ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE estoque > '0' ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
             }
         }catch (Exception e){
 
@@ -235,8 +236,11 @@ public class AddProdutosActivity extends ActionBarActivity {
             p.setValorDesejavelVenda(cursor.getDouble(5));
             p.setCodigo(cursor.getString(1));
             p.setValorMinimoVenda(cursor.getDouble(6));
+            p.setCategoria(cursor.getLong(7));
+            p.setUnidade(cursor.getLong(8));
             p.setImagem(cursor.getBlob(12));
             p.setCodigo_ref(cursor.getString(13));
+            p.setMarca(cursor.getLong(14));
 
             listProduto.add(p);
 

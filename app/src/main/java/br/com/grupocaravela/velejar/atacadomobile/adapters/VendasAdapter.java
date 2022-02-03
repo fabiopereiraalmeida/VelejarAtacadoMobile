@@ -97,7 +97,7 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
 
         cursor = db
                 .rawQuery(
-                        "SELECT _id, codigo, nome, valor_desejavel_venda, unidade_id, imagem, codigo_ref FROM produto where _id like '" + mList.get(position).getProduto().toString() + "'", null);
+                        "SELECT _id, codigo, nome, valor_desejavel_venda, unidade_id, imagem, codigo_ref, marca_id FROM produto where _id like '" + mList.get(position).getProduto().toString() + "'", null);
 
 
         if (cursor.moveToFirst()) {
@@ -118,19 +118,29 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
             holder.tvCodigo.setText(cursor.getString(1));
 
             int idUnidade = cursor.getInt(4);
-
             Cursor cursorUnidade;
-
             try {
                 cursorUnidade = db
                         .rawQuery(
                                 "SELECT _id, nome FROM unidade where _id like '" + idUnidade + "'", null);
-
                 cursorUnidade.moveToFirst();
-
                 holder.tvUnidade.setText(cursorUnidade.getString(1));
             } catch (Exception e) {
                 holder.tvUnidade.setText("");
+            }
+
+            int idMarca = cursor.getInt(7);
+            Cursor cursorMarca;
+            try {
+                cursorMarca = db
+                        .rawQuery(
+                                "SELECT _id, nome FROM marca where _id like '" + idMarca + "'", null);
+
+                cursorMarca.moveToFirst();
+
+                holder.tvMarca.setText(cursorMarca.getString(1));
+            } catch (Exception e) {
+                holder.tvMarca.setText("");
             }
 
             if (cursor.getBlob(5) != null){
@@ -155,15 +165,6 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
             */
         }
 
-/*
-        cursor = db
-                .rawQuery(
-                        "SELECT _id, nome FROM unidade where _id like '" + cursor.getString(4) + "'", null);
-
-        cursor.moveToFirst();
-
-        holder.tvUnidade.setText(cursor.getString(1));
-*/
 
         //######### ANIMAÇÃO ###############
         try {
@@ -200,6 +201,7 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
 
         public ImageView ivProduto;
         public TextView tvDescricaoProduto;
+        public TextView tvMarca;
         public TextView tvPrecoUnitario;
         public TextView tvQuantidade;
         public TextView tvExpositor;
@@ -215,12 +217,13 @@ public class VendasAdapter extends RecyclerView.Adapter<VendasAdapter.MyViewHold
 
             ivProduto = (ImageView) itemView.findViewById(R.id.iv_venda_imagem_produto);
             tvDescricaoProduto = (TextView) itemView.findViewById(R.id.tv_venda_descricao_produto);
+            tvMarca = (TextView) itemView.findViewById(R.id.textViewVendaMarca);
             tvPrecoUnitario = (TextView) itemView.findViewById(R.id.tv_venda_valor_unitario);
             tvQuantidade = (TextView) itemView.findViewById(R.id.tv_venda_qtd);
             tvValorTotal = (TextView) itemView.findViewById(R.id.tv_venda_valor_parcial);
             tvDesconto = (TextView) itemView.findViewById(R.id.tv_venda_desconto);
             tvTotalGeral = (TextView) itemView.findViewById(R.id.tv_venda_total_geral);
-            tvUnidade = (TextView) itemView.findViewById(R.id.textViewUn);
+            tvUnidade = (TextView) itemView.findViewById(R.id.tv_venda_estoque_unidade);
             tvCodigo = (TextView) itemView.findViewById(R.id.tv_venda_codigo);
             //tvObs = (TextView) itemView.findViewById(R.id.tv_obs_produto);
 

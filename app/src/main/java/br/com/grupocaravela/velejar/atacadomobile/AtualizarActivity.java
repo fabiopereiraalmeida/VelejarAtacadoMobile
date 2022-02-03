@@ -1738,6 +1738,7 @@ public class AtualizarActivity extends ActionBarActivity {
 
             db.insert("produto", null, contentValues); //Salvando o produto
 
+            Log.i("MARCA", "A marca " + listaProdutos.get(i).getMarca() + " foi criada com sucesso!");
             Log.i("Banco", "O Produto " + listaProdutos.get(i).getNome() + " com o expositor de " + listaProdutos.get(i).getExpositor() + " e código " + listaProdutos.get(i).getCodigo() + " foi criado com sucesso!");
 
             dialog.setProgress(i);

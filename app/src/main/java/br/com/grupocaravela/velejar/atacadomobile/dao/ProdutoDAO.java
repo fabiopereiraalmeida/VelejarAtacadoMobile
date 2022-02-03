@@ -115,6 +115,12 @@ public class ProdutoDAO {
                     }
 
                     try {
+                        produto.setMarca(Long.parseLong(soapObject.getProperty("marca").toString()));
+                    }catch (Exception e){
+                        produto.setMarca(null);
+                    }
+
+                    try {
                         produto.setAtivo(Boolean.parseBoolean(soapObject.getProperty("ativo").toString()));
                     }catch (Exception e){
                         produto.setAtivo(false);
