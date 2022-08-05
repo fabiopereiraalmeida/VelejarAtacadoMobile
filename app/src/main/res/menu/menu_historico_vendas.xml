@@ -2,17 +2,6 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 tools:context="br.com.grupocaravela.velejar.atacadomobile.HistoricoVendasActivity">
-<item
-    android:id="@+id/action_limpar_historico"
-    android:title="Limpar histórico"
-    android:orderInCategory="100"
-    app:showAsAction="never" />
-
-<item
-    android:id="@+id/action_reenviar_tudo"
-    android:title="Reenviar todo historico"
-    android:orderInCategory="100"
-    app:showAsAction="never" />
 
     <item
         android:id="@+id/action_data_inicial_historico"

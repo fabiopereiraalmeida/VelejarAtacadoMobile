@@ -22,8 +22,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionMenu;
@@ -193,7 +191,7 @@ public class MenuPrincipalActivity extends ActionBarActivity {
                 .addProfiles(
                         new ProfileDrawerItem()
                                 .withName(buscaNomeUsuario())
-                                .withEmail("Crédito R$ " + String.format("%.2f",buscaCreditoUsusario()))
+                                .withEmail("Crédito R$ " + String.format("%.2f", buscaCreditoUsuario()))
                                 //.withEmail("usuario@dominio.com")
                                 .withIcon(getResources().getDrawable(R.drawable.sem_foto_perfil))
                 )
@@ -585,7 +583,7 @@ public class MenuPrincipalActivity extends ActionBarActivity {
         return retorno;
     }
 
-    private Double buscaCreditoUsusario(){
+    private Double buscaCreditoUsuario(){
         Double retorno = 0.0;
 
         cursor = db
@@ -598,7 +596,7 @@ public class MenuPrincipalActivity extends ActionBarActivity {
         try {
             cursor = db
                     .rawQuery(
-                            "SELECT _id, data, empresa_id, valor, usuario_id, venda_detalhe_id FROM credito_usuario_detalhes where usuario_id like '" + id + "'", null);
+                            "SELECT _id, data, empresa_id, valor, usuario_id, venda_detalhe_id FROM credito_usuario where usuario_id like '" + id + "'", null);
 
             cursor.moveToFirst();
 

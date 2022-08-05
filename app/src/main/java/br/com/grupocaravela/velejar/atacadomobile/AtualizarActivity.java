@@ -29,7 +29,6 @@ import br.com.grupocaravela.comprefacil.velejaratacado.R;
 import br.com.grupocaravela.velejar.atacadomobile.Util.Configuracao;
 import br.com.grupocaravela.velejar.atacadomobile.bancoDados.DBHelper;
 import br.com.grupocaravela.velejar.atacadomobile.dao.AndroidCaixaDAO;
-import br.com.grupocaravela.velejar.atacadomobile.dao.AndroidContaReceberDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.AndroidVendaCabecalhoDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.AndroidVendaDetalheDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.CargoDAO;
@@ -39,9 +38,7 @@ import br.com.grupocaravela.velejar.atacadomobile.dao.CidadeDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.ClienteDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.ContaReceberDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.CreditoUsuarioDAO;
-import br.com.grupocaravela.velejar.atacadomobile.dao.CreditoUsuarioDetalhesDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.EmpresaDAO;
-import br.com.grupocaravela.velejar.atacadomobile.dao.EnderecoClienteDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.EstadoDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.FormaPagamentoDAO;
 import br.com.grupocaravela.velejar.atacadomobile.dao.MarcaDAO;
@@ -62,7 +59,6 @@ import br.com.grupocaravela.velejar.atacadomobile.objeto.Cidade;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.Cliente;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.ContaReceber;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.CreditoUsuario;
-import br.com.grupocaravela.velejar.atacadomobile.objeto.CreditoUsuarioDetalhes;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.Empresa;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.EnderecoCliente;
 import br.com.grupocaravela.velejar.atacadomobile.objeto.Estado;
@@ -98,7 +94,6 @@ public class AtualizarActivity extends ActionBarActivity {
     private Cliente cliente = null;
     private ContaReceber contaReceber = null;
     private CreditoUsuario creditoUsuario = null;
-    private CreditoUsuarioDetalhes creditoUsuarioDetalhes = null;
     private EnderecoCliente enderecoCliente = null;
     private FormaPagamento formaPagamento = null;
     //private Produto produto = null;
@@ -301,7 +296,7 @@ public class AtualizarActivity extends ActionBarActivity {
                     Log.i("Banco", "As tabelas do banco foram criadas com sucesso!");
 
                     atualizarUsuario(dialog);
-                    atualizarCreditoUsuarioDetalhes(dialog);
+                    //atualizarCreditoUsuario(dialog);
                     atualizarEmpresa(dialog);
                     if (!verificarBancoCidades()){
                         atualizarCidade(dialog);
@@ -322,7 +317,7 @@ public class AtualizarActivity extends ActionBarActivity {
                     atualizarContaReceber(dialog);
 
                     //atualizarCargo();
-                    //atualizarCreditoUsuarioDetalhes();
+                    //atualizarCreditoUsuario();
 
                     //db.close();
 
@@ -1584,11 +1579,11 @@ public class AtualizarActivity extends ActionBarActivity {
             dialog.setProgress(i);
         }
     }
-/*
+
     private void atualizarCreditoUsuario(ProgressDialog dialog) {
 
         CreditoUsuarioDAO creditoUsuarioDAO = new CreditoUsuarioDAO();
-        ArrayList<CreditoUsuario> listaCreditoUsuario = creditoUsuarioDAO.listarCreditoUsuario(idEmpresa, Configuracao.getCnpj());
+        ArrayList<CreditoUsuario> listaCreditoUsuario = creditoUsuarioDAO.listaCreditoUsuario(idEmpresa, Configuracao.getCnpj());
 
         dialog.setMax(listaCreditoUsuario.size());
         dialog.setProgress(0);
@@ -1600,45 +1595,20 @@ public class AtualizarActivity extends ActionBarActivity {
             creditoUsuario = listaCreditoUsuario.get(i);
 
             contentValues.put("_id", creditoUsuario.getId());
-            contentValues.put("valor", creditoUsuario.getValor()); // Adicionando
-            contentValues.put("usuario_id", creditoUsuario.getUsuario()); // Adicionando
-
-            db.insert("credito_usuario", null, contentValues); //Salvando o cargo
-
-            Log.i("Banco", "O crédito usuario do usuario cod: " + creditoUsuario.getUsuario() + " no valor de " + creditoUsuario.getValor() + "foi criado com sucesso!");
-
-        }
-    }
-*/
-    private void atualizarCreditoUsuarioDetalhes(ProgressDialog dialog) {
-
-        CreditoUsuarioDetalhesDAO creditoUsuarioDetalhesDAO = new CreditoUsuarioDetalhesDAO();
-        ArrayList<CreditoUsuarioDetalhes> listaCreditoUsuarioDetalhes = creditoUsuarioDetalhesDAO.listarCreditoUsuarioDetalhes(idEmpresa, Configuracao.getCnpj());
-
-        dialog.setMax(listaCreditoUsuarioDetalhes.size());
-        dialog.setProgress(0);
-
-        for (int i = 0; i < listaCreditoUsuarioDetalhes.size(); i++) {
-
-            contentValues.clear();
-
-            creditoUsuarioDetalhes = listaCreditoUsuarioDetalhes.get(i);
-
-            contentValues.put("_id", creditoUsuarioDetalhes.getId());
             try {
                 //contentValues.put("vencimento", format.format(contaReceber.getVencimento())); // Adicionando
-                contentValues.put("data", creditoUsuarioDetalhes.getData()); // Adicionando
+                contentValues.put("data", creditoUsuario.getData()); // Adicionando
             }catch (Exception e){
                 contentValues.put("data", ""); // Adicionando
             }
-            contentValues.put("empresa_id", creditoUsuarioDetalhes.getEmpresa()); // Adicionando
-            contentValues.put("valor", creditoUsuarioDetalhes.getValor()); // Adicionando
-            contentValues.put("usuario_id", creditoUsuarioDetalhes.getUsuario()); // Adicionando
-            contentValues.put("venda_detalhe_id", creditoUsuarioDetalhes.getVendaDetalhe()); // Adicionando
+            contentValues.put("empresa_id", creditoUsuario.getEmpresa()); // Adicionando
+            contentValues.put("valor", creditoUsuario.getValor()); // Adicionando
+            contentValues.put("usuario_id", creditoUsuario.getUsuario()); // Adicionando
+            contentValues.put("venda_detalhe_id", creditoUsuario.getVendaDetalhe()); // Adicionando
 
-            db.insert("credito_usuario_detalhes", null, contentValues); //Salvando o cargo
+            db.insert("credito_usuario", null, contentValues); //Salvando o cargo
 
-            Log.i("Banco", "O crédito usuario detalhes do usuario cod: " + creditoUsuarioDetalhes.getUsuario() + " foi criado com sucesso!");
+            Log.i("Banco", "O crédito usuario detalhes do usuario cod: " + creditoUsuario.getUsuario() + " foi criado com sucesso!");
             dialog.setProgress(i);
         }
     }

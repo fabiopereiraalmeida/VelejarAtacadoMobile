@@ -4,15 +4,20 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_addclientes.xml" value="0.348731884057971" />
+        <entry key="app/src/main/res/layout/activity_contas_receber.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_historico_vendas.xml" value="0.19293478260869565" />
         <entry key="app/src/main/res/layout/activity_produtos.xml" value="0.19384057971014493" />
         <entry key="app/src/main/res/layout/activity_venda.xml" value="0.32263242375601925" />
+        <entry key="app/src/main/res/layout/fragment_contas_receber.xml" value="0.1766304347826087" />
+        <entry key="app/src/main/res/layout/fragment_forma_pagamento.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/fragment_itens_venda.xml" value="0.19021739130434784" />
         <entry key="app/src/main/res/layout/fragment_produtos.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/layout/item_contas_receber.xml" value="0.1766304347826087" />
         <entry key="app/src/main/res/layout/item_produto.xml" value="0.33" />
         <entry key="app/src/main/res/layout/item_venda_produto.xml" value="0.33" />
         <entry key="app/src/main/res/layout/list_opcoes.xml" value="0.16032608695652173" />
         <entry key="app/src/main/res/menu/menu_historico_vendas.xml" value="0.2109375" />
+        <entry key="app/src/main/res/menu/menu_historico_vendas_old.xml" value="0.2109375" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.2140625" />
         <entry key="app/src/main/res/menu/menu_venda.xml" value="0.2140625" />
       </map>

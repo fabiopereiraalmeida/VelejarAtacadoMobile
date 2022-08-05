@@ -123,7 +123,7 @@ public class AddProdutosActivity extends ActionBarActivity {
         List<Produto> listProdutos = new ArrayList<>();
 
         try {
-
+/*
             if (Configuracao.getProdutoSemEstoque()){
                 cursor = db
                         .rawQuery(
@@ -136,6 +136,20 @@ public class AddProdutosActivity extends ActionBarActivity {
                                 "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
                                         "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE nome LIKE '%" + nome + "%' AND estoque > '0'" +
                                         "OR codigo LIKE '%" + nome + "%' AND estoque > '0' OR codigo_ref LIKE '%" + nome + "%' AND estoque > '0' ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
+            }
+ */
+            if (Configuracao.getProdutoSemEstoque()){
+                cursor = db
+                        .rawQuery(
+                                "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE nome LIKE '%" + nome + "%' " +
+                                        "OR codigo LIKE '%" + nome + "%' OR codigo_ref LIKE '%" + nome + "%' ORDER BY nome COLLATE NOCASE ASC", null);
+            }else{
+                cursor = db
+                        .rawQuery(
+                                "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE nome LIKE '%" + nome + "%' AND estoque > '0'" +
+                                        "OR codigo LIKE '%" + nome + "%' AND estoque > '0' OR codigo_ref LIKE '%" + nome + "%' AND estoque > '0' ORDER BY nome COLLATE NOCASE ASC", null);
             }
 
             if (cursor.moveToFirst()) {
@@ -208,15 +222,29 @@ public class AddProdutosActivity extends ActionBarActivity {
         try {
 
             if (Configuracao.getProdutoSemEstoque()){
+                /*
                 cursor = db
                         .rawQuery(
                                 "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
                                         "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
+                                        */
+                cursor = db
+                        .rawQuery(
+                                "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto ORDER BY nome COLLATE NOCASE ASC", null);
+
             }else {
+                /*
                 cursor = db
                         .rawQuery(
                                 "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
                                         "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE estoque > '0' ORDER BY nome COLLATE NOCASE ASC LIMIT 50", null);
+                                        */
+                cursor = db
+                        .rawQuery(
+                                "SELECT _id, codigo, nome, estoque, expositor, valor_desejavel_venda, valor_minimo_venda, categoria_id, unidade_id, " +
+                                        "ativo, peso, empresa_id, imagem, codigo_ref, marca_id FROM produto WHERE estoque > '0' ORDER BY nome COLLATE NOCASE ASC", null);
+
             }
         }catch (Exception e){
 

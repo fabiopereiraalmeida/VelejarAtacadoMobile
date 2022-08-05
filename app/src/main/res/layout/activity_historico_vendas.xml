@@ -15,7 +15,8 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:elevation="4dp"
-        app:theme="@style/Theme.CompreFacil"/>
+        app:theme="@style/Theme.CompreFacil"
+        android:layout_alignParentStart="true" />
     <!-- Fim toobar colocado -->
 
     <FrameLayout

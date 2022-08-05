@@ -338,7 +338,7 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
         //this.cDataFim.set(anoFim, mesFim, diaFim);
 
         switch (item.getItemId()) {
-
+/*
             case R.id.action_limpar_historico:
                 //##############################################
                 AlertDialog.Builder alertDialogBuilder1 = new AlertDialog.Builder(HistoricoVendasActivity.this);
@@ -408,7 +408,7 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
                 //##############################################
                 //new ReenviarTodoHistorico().execute();
                 break;
-
+*/
             case R.id.action_data_inicial_historico:
                 //##############################################
                 DatePickerDialog datePickerInicioDialog = new DatePickerDialog().newInstance(this,
@@ -596,7 +596,6 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
                     idVendaCabecalho = cursor.getInt(0);
 
                     //ContentValues vcCabecalho = new ContentValues();
-
                     //db.delete("android_venda_cabecalho", "_id=?", new String[]{String.valueOf(cursor.getInt(0))});
 
                     enviarAndroidVendaDetalhe(cursor.getInt(0));
@@ -740,5 +739,4 @@ public class HistoricoVendasActivity extends ActionBarActivity implements DatePi
             dialog.dismiss();
         }
     }
-
 }

@@ -33,7 +33,7 @@ public class DBHelper extends SQLiteOpenHelper {
 			"venda_cabecalho_id INTEGER, valor_devido DOUBLE(11,2), vencimento VARCHAR(20), data_pagamento VARCHAR(20), quitada BOOLEAN, atrasada BOOLEAN, " +
 			"empresa_id INTEGER, valor_desconto DOUBLE(11,2), observacao VARCHAR(200))";
 
-	private static final String TABLE_CREDITO_USUARIO_DETALHES = "CREATE TABLE IF NOT EXISTS [credito_usuario_detalhes](_id INTEGER PRIMARY KEY, data VARCHAR(20), " +
+	private static final String TABLE_CREDITO_USUARIO = "CREATE TABLE IF NOT EXISTS [credito_usuario](_id INTEGER PRIMARY KEY, data VARCHAR(20), " +
 			"empresa_id INTEGER, valor DOUBLE(11,2), usuario_id INTEGER, venda_detalhe_id INTEGER)";
 
 	private static final String TABLE_EMPRESA = "CREATE TABLE IF NOT EXISTS [empresa](_id INTEGER PRIMARY KEY, razaoSocial VARCHAR(60), fantasia VARCHAR(30), " +
@@ -99,7 +99,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	//private static final String DELETE_TABELA_CLIENTE = "DELETE FROM cliente WHERE novo LIKE '0'";
 	private static final String DELETE_TABELA_CONTA_RECEBER = "DROP TABLE IF EXISTS conta_receber";
 	private static final String DELETE_TABELA_CREDITO_USUARIO = "DROP TABLE IF EXISTS credito_usuario";
-	private static final String DELETE_TABELA_CREDITO_USUARIO_DETALHES = "DROP TABLE IF EXISTS credito_usuario_detalhes";
+	private static final String DELETE_TABELA_CREDITO = "DROP TABLE IF EXISTS credito_usuario";
 	private static final String DELETE_TABELA_EMPRESA = "DROP TABLE IF EXISTS empresa";
 	private static final String DELETE_TABELA_ENDERECO_CLIENTE = "DROP TABLE IF EXISTS endereco_cliente";
 	private static final String DELETE_TABELA_FORMA_PAGAMENTO = "DROP TABLE IF EXISTS forma_pagamento";
@@ -141,7 +141,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(TABLE_CIDADE);
         db.execSQL(TABLE_ESTADO);
 		db.execSQL(TABLE_CONTA_RECEBER);
-		db.execSQL(TABLE_CREDITO_USUARIO_DETALHES);
+		db.execSQL(TABLE_CREDITO_USUARIO);
 		db.execSQL(TABLE_EMPRESA);
 		db.execSQL(TABLE_FORMA_PAGAMENTO);
 		db.execSQL(TABLE_PRODUTO);
@@ -172,7 +172,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(DELETE_TABELA_CLIENTE); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_CONTA_RECEBER); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_CREDITO_USUARIO); // Apaga o banco de dados
-		db.execSQL(DELETE_TABELA_CREDITO_USUARIO_DETALHES); // Apaga o banco de dados
+		db.execSQL(DELETE_TABELA_CREDITO_USUARIO); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_EMPRESA); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_ENDERECO_CLIENTE); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_FORMA_PAGAMENTO); // Apaga o banco de dados
@@ -201,7 +201,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(TABLE_CIDADE);
         db.execSQL(TABLE_ESTADO);
 		db.execSQL(TABLE_CONTA_RECEBER);
-		db.execSQL(TABLE_CREDITO_USUARIO_DETALHES);
+		db.execSQL(TABLE_CREDITO_USUARIO);
 		db.execSQL(TABLE_EMPRESA);
 		db.execSQL(TABLE_FORMA_PAGAMENTO);
 		db.execSQL(TABLE_PRODUTO);
@@ -229,7 +229,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(DELETE_TABELA_CLIENTE); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_CONTA_RECEBER); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_CREDITO_USUARIO); // Apaga o banco de dados
-		db.execSQL(DELETE_TABELA_CREDITO_USUARIO_DETALHES); // Apaga o banco de dados
+		db.execSQL(DELETE_TABELA_CREDITO_USUARIO); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_EMPRESA); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_ENDERECO_CLIENTE); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_FORMA_PAGAMENTO); // Apaga o banco de dados
@@ -253,7 +253,7 @@ public class DBHelper extends SQLiteOpenHelper {
 		db.execSQL(DELETE_TABELA_CLIENTE); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_CONTA_RECEBER); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_CREDITO_USUARIO); // Apaga o banco de dados
-		db.execSQL(DELETE_TABELA_CREDITO_USUARIO_DETALHES); // Apaga o banco de dados
+		db.execSQL(DELETE_TABELA_CREDITO_USUARIO); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_EMPRESA); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_ENDERECO_CLIENTE); // Apaga o banco de dados
 		db.execSQL(DELETE_TABELA_FORMA_PAGAMENTO); // Apaga o banco de dados

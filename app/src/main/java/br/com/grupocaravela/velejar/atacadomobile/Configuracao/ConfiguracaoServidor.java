@@ -6,8 +6,9 @@ package br.com.grupocaravela.velejar.atacadomobile.Configuracao;
 
 public class ConfiguracaoServidor {
 
-    private static String ipServidor = "www.velejarsoftware.com.br";
-    //private static String ipServidor = "192.168.1.129"; //Teste
+    private static String ipServidor = "191.252.2.213";
+    //private static String ipServidor = "localhost"; //Teste
+    //private static String ipServidor = "192.168.1.2"; //Teste
 
     private static String portaTomCat = "80";
     //private static String portaTomCat = "8080"; //Teste
