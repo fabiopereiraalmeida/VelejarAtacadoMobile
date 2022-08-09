@@ -5,13 +5,17 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.ByteArrayInputStream;
 
 import br.com.grupocaravela.comprefacil.velejaratacado.R;
 import br.com.grupocaravela.velejar.atacadomobile.Util.Imagem;
@@ -72,6 +76,8 @@ public class DetalhesProdutoActivity extends ActionBarActivity {
         tvPreco = (TextView) findViewById(R.id.tv_produto_preco);
 
         ivProduto = (ImageView) findViewById(R.id.iv_produto_detalhes);
+
+
 /*
         Bitmap imagem = Imagem.carregarImagem(this, "produto_" + cursor.getInt(0) + ".png");
 
@@ -108,6 +114,18 @@ public class DetalhesProdutoActivity extends ActionBarActivity {
         }catch (Exception e){
 
         }
+
+        if (cursor.getBlob(11) != null){
+
+            Log.i("IMAGEM", "NAO NULO");
+
+            ByteArrayInputStream imageStream = new ByteArrayInputStream(cursor.getBlob(11));
+            Bitmap theImage = BitmapFactory.decodeStream(imageStream);
+
+            ivProduto.setImageBitmap(theImage);
+        }else{
+            ivProduto.setImageResource(R.drawable.sem_foto);
+        }
 /*
         Bitmap imagem = Imagem.carregarImagem(this, "produto_" + cursor.getString(0) + ".png");
 
@@ -118,7 +136,7 @@ public class DetalhesProdutoActivity extends ActionBarActivity {
         }
 */
 
-        ivProduto.setImageResource(R.drawable.sem_foto);
+        //ivProduto.setImageResource(R.drawable.sem_foto);
 
         //########## Inicio pegando o cliente #############
 
